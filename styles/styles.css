@@ -16,6 +16,9 @@ h1 {
     margin: auto;
     grid-gap: 25px 25px
 }
+.controls {
+    text-align: center;
+}
 
 .box {
     background-color: #17a567;
@@ -25,18 +28,19 @@ h1 {
 }
 
 
-.red {
+.black {
     background-color: black;
 }
 
-.redhover{
+.blackhover{
     background-color: rgba(0, 255, 0, 0.3);
 
 }
-.hoverblue{
+
+.hoverwhite{
     background-color: rgba(0, 0, 255, 0.3);
 
 }
-.blue {
+.white {
     background-color: white;
 }
