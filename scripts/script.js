@@ -1,5 +1,8 @@
-let currentPlayer = 1;
+let turn = 'X'
+let turnCount = 0;
+let moves = new Array(9);
 const boxes = document.querySelectorAll(".box")
+const resultArea = document.querySelector(".result");
 document.getElementById("resetButton").addEventListener('click', resetBoard);
 
 function startGame() {
@@ -8,12 +11,12 @@ function startGame() {
         box.addEventListener('mouseover', hover)
         box.addEventListener('mouseout', removeHover)
     })
-    currentPlayer = 1;
+    turnCount = 0;
 }
 startGame();
 
 function hover() {
-    if (currentPlayer) {
+    if (turnCount % 2 == 0) {
         this.classList.add('blackhover')
     } else {
         this.classList.add('hoverwhite')
@@ -26,23 +29,29 @@ function removeHover() {
 }
 
 
-function clicked() {
-    if (currentPlayer) {
+function clicked(event) {
+    if (turnCount % 2 == 0) {
         this.classList.add('black')
         this.removeEventListener('mouseover', hover)
-        currentPlayer = 0;
+        moves[event.target.id] = turn;
+        turn = 'O';
+        turnCount++;
 
     } else {
         this.classList.add('white')
         this.removeEventListener('mouseover', hover)
-        currentPlayer = 1;
+        moves[event.target.id] = turn;
+        turn = 'X'
+        turnCount++
     }
-    checkWinner()
+    if (turnCount > 5) {
+        checkWinner()
+    }
 }
 
 
 function checkWinner() {
-    if (boxes[0].classList.contains("white") && boxes[1].classList.contains("white") && boxes[2].classList.contains("white")) {
+    if (moves[0] === moves[1] && moves[1] === moves[2]) {
         boxes.forEach(box => {box.removeEventListener('click', clicked)})
         presentWinner("white wins!")
     }
@@ -50,7 +59,6 @@ function checkWinner() {
 
 
 function presentWinner(color) {
-    const resultArea = document.querySelector(".result");
     resultArea.innerHTML = "Result: " + color;
 
 }
@@ -60,6 +68,6 @@ function resetBoard() {
         box.classList.remove('white');
         box.classList.remove('black');
     })
-
+    resultArea.innerHTML = "Result: "
     startGame();
 }

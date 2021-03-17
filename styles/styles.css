@@ -14,13 +14,15 @@ h1 {
     width: 50vw;
     height: 50vw;
     margin: auto;
-    grid-gap: 25px 25px
+    grid-gap: 15px 15px
 }
 .controls {
     text-align: center;
 }
 
+
 .box {
+    border-radius: 10px;
     background-color: #17a567;
     padding: 20px;
     font-size: 30px;
