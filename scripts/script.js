@@ -71,8 +71,9 @@ function checkWinner() {
         presentWinner(moves[0])
     } else if (moves[2] === moves[4] && moves[4] === moves[6]) {
         presentWinner(moves[2])
+    } else if (turnCount == 9) {
+        resultArea.innerHTML = "Result: draw";
     }
-
 }
 
 

@@ -14,7 +14,9 @@ h1 {
     width: 50vw;
     height: 50vw;
     margin: auto;
-    grid-gap: 15px 15px
+    grid-gap: 15px 15px;
+    max-width: 500px;
+    max-height: 500px;
 }
 .controls {
     text-align: center;
