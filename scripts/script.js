@@ -4,9 +4,18 @@ let moves = new Array(9);
 const boxes = document.querySelectorAll(".box")
 document.getElementById("resetButton").addEventListener('click', resetBoard);
 document.getElementById("replay").addEventListener('click', resetBoard)
+document.getElementById("start").addEventListener('click', newStart)
 let xWinCount = 0;
 let oWinCount = 0;
 let drawCount = 0;
+let playerOneChoice = 0;
+let playerTwoChoice = 0;
+function newStart() {
+    document.querySelector("#opening-overlay").style.display = "none";
+    playerOneChoice = document.querySelector('input').value;
+    playerTwoChoice = document.querySelectorAll('input')[1].value;
+    startGame();
+}
 
 function startGame() {
     boxes.forEach(box => {
@@ -19,19 +28,19 @@ function startGame() {
     document.querySelector(".overlay").style.display = "none";
 }
 
-startGame();
+
 
 function hover() {
     if (turnCount % 2 == 0) {
-        this.classList.add('blackhover')
+        this.style.backgroundColor = playerOneChoice;
     } else {
-        this.classList.add('hoverwhite')
+        this.style.backgroundColor = playerTwoChoice;
     }
 }
 
 function removeHover() {
-    this.classList.remove('blackhover')
-    this.classList.remove('hoverwhite')
+    this.style.backgroundColor ='#17a567';
+
 }
 
 
@@ -40,11 +49,12 @@ function clicked(event) {
     x.setAttribute('src', "images/X.svg");
 
     if (turnCount % 2 == 0) {
-        // this.appendChild(x)
-        this.classList.add('black')
+        this.style.backgroundColor = playerOneChoice;
+        this.removeEventListener('mouseout', removeHover);
         turn = 'O';
     } else {
-        this.classList.add('white')
+        this.style.backgroundColor = playerTwoChoice;
+        this.removeEventListener('mouseout', removeHover);
         turn = 'X'
     }
     this.removeEventListener('mouseover', hover)
@@ -101,8 +111,7 @@ function presentWinner(player) {
 
 function resetBoard() {
     boxes.forEach(box => {
-        box.classList.remove('white');
-        box.classList.remove('black');
+        box.style.backgroundColor ='#17a567';
     })
     startGame();
 }

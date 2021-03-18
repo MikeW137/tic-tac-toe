@@ -18,9 +18,26 @@ h1 {
     max-width: 500px;
     max-height: 500px;
 }
+
 .controls {
     text-align: center;
 }
+
+#opening-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+
+}
+
+
 .overlay {
     display: flex;
     position: fixed;
@@ -35,10 +52,30 @@ h1 {
     flex-direction: column;
 }
 
+
+
 #overlay-text {
     font-size: 50px;
     color: white;
 }
+
+#replay {
+    border-radius: 10px;
+    font-size: 2rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    margin: 20px;
+}
+
+#replay:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-color:white;
+}
+
+
 
 .box {
     border-radius: 10px;
