@@ -2,7 +2,6 @@ let turn = 'X'
 let turnCount = 0;
 let moves = new Array(9);
 const boxes = document.querySelectorAll(".box")
-// const resultArea = document.querySelector(".result");
 document.getElementById("resetButton").addEventListener('click', resetBoard);
 document.getElementById("replay").addEventListener('click', resetBoard)
 let xWinCount = 0;
@@ -74,7 +73,6 @@ function checkWinner() {
     } else if (moves[2] === moves[4] && moves[4] === moves[6]) {
         presentWinner(moves[2])
     } else if (turnCount == 9) {
-        // resultArea.innerHTML = "Result: draw";
         presentWinner(turnCount)
 
     }
@@ -84,11 +82,9 @@ function checkWinner() {
 function presentWinner(player) {
     if (player == 'O') {
         document.querySelector("#overlay-text").innerHTML = "Player 1 wins!"
-        // resultArea.innerHTML = "Result: black wins";
         oWinCount++;
     } else if (player =='X') {
         document.querySelector("#overlay-text").innerHTML = "Player 2 wins!"
-        // resultArea.innerHTML = "Result: white wins";
         xWinCount++
     } else {
         drawCount++;
@@ -107,6 +103,5 @@ function resetBoard() {
         box.classList.remove('white');
         box.classList.remove('black');
     })
-    // resultArea.innerHTML = "Result: "
     startGame();
 }
