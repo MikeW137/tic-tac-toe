@@ -12,6 +12,7 @@ function startGame() {
         box.addEventListener('mouseout', removeHover)
     })
     turnCount = 0;
+    moves = new Array(9);
 }
 startGame();
 
@@ -30,37 +31,60 @@ function removeHover() {
 
 
 function clicked(event) {
+
     if (turnCount % 2 == 0) {
         this.classList.add('black')
-        this.removeEventListener('mouseover', hover)
-        moves[event.target.id] = turn;
         turn = 'O';
-        turnCount++;
-
     } else {
         this.classList.add('white')
-        this.removeEventListener('mouseover', hover)
-        moves[event.target.id] = turn;
         turn = 'X'
-        turnCount++
     }
-    if (turnCount > 5) {
+    this.removeEventListener('mouseover', hover)
+    moves[event.target.id] = turn;
+    turnCount++;
+    if (turnCount >= 5) {
         checkWinner()
     }
 }
 
 
 function checkWinner() {
-    if (moves[0] === moves[1] && moves[1] === moves[2]) {
-        boxes.forEach(box => {box.removeEventListener('click', clicked)})
-        presentWinner("white wins!")
+    if (moves[0] !== undefined && moves[0] === moves[1] && moves[1] === moves[2]) {
+        presentWinner(moves[0])
+        console.log('first condition')
+     } else if (moves[3] !== undefined && moves[3] === moves[4] && moves[4] === moves[5]) {
+        presentWinner(moves[3])
+        console.log('second condition')
+    } else if (moves[6] !== undefined && moves[6] === moves[7] && moves[7] === moves[8]) {
+        presentWinner(moves[6])
+        console.log('third condition')
+    } else if (moves[0] !== undefined && moves[0] === moves[3] && moves[3] === moves[6]) {
+        presentWinner(moves[3])
+        console.log('fourth')
+    } else if (moves[1] !== undefined && moves[1] === moves[4] && moves[4] === moves[7]) {
+        presentWinner(moves[1])
+        console.log('fifth')
+    } else if (moves[2] !== undefined && moves[2] === moves[5] && moves[5] === moves[8]) {
+        presentWinner(moves[2])
+        console.log('sixth')
+    } else if (moves[0] === moves[4] && moves[4] === moves[8]) {
+        presentWinner(moves[0])
+    } else if (moves[2] === moves[4] && moves[4] === moves[6]) {
+        presentWinner(moves[2])
     }
+
 }
 
 
-function presentWinner(color) {
-    resultArea.innerHTML = "Result: " + color;
-
+function presentWinner(player) {
+    console.log(player)
+    console.log(player == 'O')
+    if (player == 'O') {
+        resultArea.innerHTML = "Result: black wins";
+    } else {
+        resultArea.innerHTML = "Result: white wins";
+    }
+    boxes.forEach(box => {box.removeEventListener('click', clicked)})
 }
 
 function resetBoard() {
