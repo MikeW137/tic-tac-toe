@@ -22,14 +22,14 @@ h1 {
     text-align: center;
 }
 .overlay {
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    display: none;
     background-color: rgba(0,0,0,0.8);
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -39,16 +39,6 @@ h1 {
     font-size: 50px;
     color: white;
 }
-/*#overlay-button {*/
-/*    position: absolute;*/
-/*    top: 55%;*/
-/*    left: 50%;*/
-/*    font-size: 50px;*/
-/*    color: white;*/
-/*    transform: translate(-50%,-50%);*/
-/*    -ms-transform: translate(-50%,-50%);*/
-/*}*/
-
 
 .box {
     border-radius: 10px;

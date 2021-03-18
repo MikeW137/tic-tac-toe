@@ -9,7 +9,6 @@ let oWinCount = 0;
 let drawCount = 0;
 
 function startGame() {
-    document.querySelector(".overlay").style.display = "none";
     boxes.forEach(box => {
         box.addEventListener('click', clicked, {once: true})
         box.addEventListener('mouseover', hover)
@@ -17,7 +16,9 @@ function startGame() {
     })
     turnCount = 0;
     moves = new Array(9);
+    document.querySelector(".overlay").style.display = "none";
 }
+
 startGame();
 
 function hover() {
