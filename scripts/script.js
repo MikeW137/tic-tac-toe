@@ -2,13 +2,15 @@ let turn = 'X'
 let turnCount = 0;
 let moves = new Array(9);
 const boxes = document.querySelectorAll(".box")
-const resultArea = document.querySelector(".result");
+// const resultArea = document.querySelector(".result");
 document.getElementById("resetButton").addEventListener('click', resetBoard);
+document.getElementById("replay").addEventListener('click', resetBoard)
 let xWinCount = 0;
 let oWinCount = 0;
 let drawCount = 0;
 
 function startGame() {
+    document.querySelector(".overlay").style.display = "none";
     boxes.forEach(box => {
         box.addEventListener('click', clicked, {once: true})
         box.addEventListener('mouseover', hover)
@@ -72,9 +74,8 @@ function checkWinner() {
     } else if (moves[2] === moves[4] && moves[4] === moves[6]) {
         presentWinner(moves[2])
     } else if (turnCount == 9) {
-        resultArea.innerHTML = "Result: draw";
-        drawCount++;
-        document.querySelector(".draws").innerHTML = drawCount
+        // resultArea.innerHTML = "Result: draw";
+        presentWinner(turnCount)
 
     }
 }
@@ -82,15 +83,22 @@ function checkWinner() {
 
 function presentWinner(player) {
     if (player == 'O') {
-        resultArea.innerHTML = "Result: black wins";
+        document.querySelector("#overlay-text").innerHTML = "Player 1 wins!"
+        // resultArea.innerHTML = "Result: black wins";
         oWinCount++;
-    } else {
-        resultArea.innerHTML = "Result: white wins";
+    } else if (player =='X') {
+        document.querySelector("#overlay-text").innerHTML = "Player 2 wins!"
+        // resultArea.innerHTML = "Result: white wins";
         xWinCount++
+    } else {
+        drawCount++;
+        document.querySelector("#overlay-text").innerHTML = "Draw!"
     }
-    console.log(oWinCount)
+
+    document.querySelector(".overlay").style.display = "flex";
     document.querySelector(".p1-wins").innerHTML = oWinCount
     document.querySelector(".p2-wins").innerHTML = xWinCount
+    document.querySelector(".draws").innerHTML = drawCount
     boxes.forEach(box => {box.removeEventListener('click', clicked)})
 }
 
@@ -99,6 +107,6 @@ function resetBoard() {
         box.classList.remove('white');
         box.classList.remove('black');
     })
-    resultArea.innerHTML = "Result: "
+    // resultArea.innerHTML = "Result: "
     startGame();
 }
