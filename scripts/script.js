@@ -46,7 +46,7 @@ function removeHover() {
 
 
 function clicked(event) {
-    // this.classList.add("animate__animated animate__pulse")
+    this.classList.add('animate__animated', 'animate__pulse')
     let x = document.createElement('img');
     x.setAttribute('src', "images/X.svg");
 
@@ -114,6 +114,7 @@ function presentWinner(player) {
 function resetBoard() {
     boxes.forEach(box => {
         box.style.backgroundColor ='#17a567';
+        box.classList.remove('animate__animated', 'animate__pulse')
     })
     startGame();
 }
