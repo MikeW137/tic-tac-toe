@@ -58,6 +58,5 @@ Your Tic Tac Toe app must:
 
 
 ### Credits:
-- Sound effects obtained from https://www.zapsplat.com
 - Animations from https://animate.style/
 - Color picker: https://taufik-nurrohman.github.io/color-picker
