@@ -43,7 +43,7 @@ Your Tic Tac Toe app must:
 - CSS grid for the game grid
 - Style the boxes
 - Make game grid responsive
-- 
+
 
 ### JS: 
 - Add event listener to each box
