@@ -5,6 +5,7 @@ const boxes = document.querySelectorAll(".box")
 document.getElementById("resetButton").addEventListener('click', resetBoard);
 document.getElementById("replay").addEventListener('click', resetBoard)
 document.getElementById("start").addEventListener('click', newStart)
+
 let xWinCount = 0;
 let oWinCount = 0;
 let drawCount = 0;
