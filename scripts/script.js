@@ -93,10 +93,10 @@ function checkWinner() {
 
 function presentWinner(player) {
     if (player == 'O') {
-        document.querySelector("#overlay-text").innerHTML = "Player 1 wins!"
+        document.querySelector("#overlay-text").innerHTML = "Player 1 Wins!"
         oWinCount++;
     } else if (player =='X') {
-        document.querySelector("#overlay-text").innerHTML = "Player 2 wins!"
+        document.querySelector("#overlay-text").innerHTML = "Player 2 Wins!"
         xWinCount++
     } else {
         drawCount++;
