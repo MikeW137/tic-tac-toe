@@ -51,6 +51,11 @@ Your Tic Tac Toe app must:
 - Calculate if there is a winner
 - Display the winner
 
+### Challenges - solved:
+- Modifying event listeners to add and remove classes at the correct times
+- Implementing color picker and custom modification
+- Adding animation and styling for overlays
+
 
 ### Credits:
 - Sound effects obtained from https://www.zapsplat.com
