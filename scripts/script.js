@@ -46,6 +46,7 @@ function removeHover() {
 
 
 function clicked(event) {
+    // this.classList.add("animate__animated animate__pulse")
     let x = document.createElement('img');
     x.setAttribute('src', "images/X.svg");
 
